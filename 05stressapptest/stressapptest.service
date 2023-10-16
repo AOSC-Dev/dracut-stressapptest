@@ -1,0 +1,13 @@
+[Unit]
+Description=Run Stress App Test
+DefaultDependencies=no
+ConditionPathExists=/usr/bin/stressapptest
+
+[Service]
+Type=oneshot
+EnvironmentFile=/tmp/rd.sat.env
+ExecStart=/usr/bin/stressapptest_service.sh
+TimeoutSec=infinity
+StandardOutput=journal+console
+StandardError=journal+console
+KillSignal=SIGHUP
